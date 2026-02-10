@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventario - Ferretería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container">
+        <h1>Inventario · Ferretería</h1>
+        <p class="subtitle">Visualiza stock, precios y fechas de compra</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls">
+        <input id="search" type="search" placeholder="Buscar por nombre, proveedor..." />
+        <select id="sort">
+          <option value="name">Ordenar: Nombre</option>
+          <option value="quantity">Ordenar: Cantidad</option>
+          <option value="price">Ordenar: Precio de compra</option>
+          <option value="date">Ordenar: Fecha de compra</option>
+        </select>
+        <select id="filterStock">
+          <option value="all">Filtrar: Todo</option>
+          <option value="low">Poco stock (&lt;=5)</option>
+          <option value="out">Sin stock (0)</option>
+        </select>
+      </section>
+
+      <section id="grid" class="grid" aria-live="polite"></section>
+    </main>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button id="modalClose" class="modal-close" aria-label="Cerrar">✕</button>
+        <img id="modalImage" alt="imagen del producto" />
+        <div id="modalDetails" class="details"></div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
